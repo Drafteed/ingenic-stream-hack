@@ -1,0 +1,29 @@
+name: build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch toolchain
+        run: |
+          git clone --depth 1 \
+            https://github.com/Dafang-Hacks/mips-gcc472-glibc216-64bit \
+            "$HOME/mips-gcc472-glibc216-64bit-master"
+
+      - name: Build
+        run: make build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: libimp-so
+          path: dist/libimp.so

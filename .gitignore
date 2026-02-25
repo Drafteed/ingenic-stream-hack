@@ -1,0 +1,11 @@
+# Build output
+/dist/
+*.o
+*.so
+
+# Logs
+*.log
+
+# Common local files
+.DS_Store
+compile_commands.json

@@ -1,0 +1,4 @@
+BasedOnStyle: Google
+BreakBeforeBraces: Attach
+BinPackParameters: true
+ColumnLimit: 120
