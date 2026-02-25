@@ -4,6 +4,11 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -22,8 +27,14 @@ jobs:
       - name: Build
         run: make build
 
-      - name: Upload artifact
+      - name: Upload as artifact
         uses: actions/upload-artifact@v4
         with:
           name: libimp-so
           path: dist/libimp.so
+
+      - name: Upload to release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/libimp.so
