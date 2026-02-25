@@ -22,7 +22,7 @@ Based on: https://github.com/FiveLeavesLeft/WyzeCameraLiveStream
 
 **ROOT access to the camera is required.**
 
-Copy `libimp.so` to the camera (e.g., to the SD card) and launch the main fw app with `LD_PRELOAD` set accordingly.
+Download `libimp.so` from [releases page](https://github.com/Drafteed/ingenic-stream-hack/releases), copy to the camera (e.g., to the SD card) and launch the main fw app with `LD_PRELOAD` set accordingly.
 
 Example:
 
@@ -148,6 +148,14 @@ These points should be kept in mind for future changes:
 
 7. **Prefer minimal complexity in hook code.**
    This code runs in a critical process. Simpler is safer.
+
+## Special thanks
+
+Inspired by [FiveLeavesLeft](https://github.com/FiveLeavesLeft/) and [WyzeCameraLiveStream](https://github.com/FiveLeavesLeft/WyzeCameraLiveStream) project.
+
+Thanks to [AlexxIT](https://github.com/AlexxIT/go2rtc) for go2rtc project, [Dafang-Hacks](https://github.com/Dafang-Hacks) / [EliasKotlyar](https://github.com/EliasKotlyar) for toolchain and [gtxaspec](https://github.com/gtxaspec) for clues.
+
+Thanks to [Codex](https://openai.com/codex/) for helping with refactoring.
 
 ## License
 
