@@ -71,16 +71,16 @@ Replace `192.168.1.25` with your camera IP.
 
 ## Behavior notes
 
-- Single-client model: only one TCP consumer at a time.
-- New client connection replaces the previous one.
-- Non-blocking socket send is used to avoid stalling fw app.
-- On backpressure, frames may be dropped intentionally to keep the main process responsive.
+- Single-client model: only one TCP consumer at a time;
+- New client connection replaces the previous one;
+- Non-blocking socket send is used to avoid stalling fw app;
+- On backpressure, frames may be dropped intentionally to keep the main process responsive;
 - Connection is dropped only on persistent slowness or hard socket errors.
 
 ## Current limitations
 
-- Video only (no audio forwarding).
-- One TCP client at a time.
+- Video only (no audio forwarding);
+- One TCP client at a time;
 - Raw elementary stream transport (no RTSP/HTTP framing in hook itself).
 
 ## Troubleshooting
@@ -89,18 +89,18 @@ Replace `192.168.1.25` with your camera IP.
 
 Check:
 
-1. Hook loaded (`LD_PRELOAD` path correct).
-2. Port open (`STREAM_HACK_PORT`).
-3. Correct encoder channel (`STREAM_HACK_CHANNEL`, usually `0`).
+1. Hook loaded (`LD_PRELOAD` path correct);
+2. Port open (`STREAM_HACK_PORT`);
+3. Correct encoder channel (`STREAM_HACK_CHANNEL`, usually `0`);
 4. Log file for connect/disconnect and socket errors.
 
 ### Main process restarts
 
 Common causes:
 
-- incompatible toolchain,
-- blocking operations inside hook path,
-- too heavy logging,
+- Incompatible toolchain;
+- Blocking operations inside hook path;
+- Too heavy logging;
 - ABI mismatch with `IMPEncoderStream` layout.
 
 Current code avoids blocking sends and uses T31X-compatible `imp/imp_encoder.h` layout.
@@ -110,9 +110,9 @@ Current code avoids blocking sends and uses T31X-compatible `imp/imp_encoder.h` 
 Usually means stream did not begin with a decodable keyframe or packet header format mismatch.
 Current implementation already mitigates this by:
 
-- waiting for a keyframe before sending,
-- forcing IDR on connect,
-- converting AVCC packets to Annex-B when needed.
+- Waiting for a keyframe before sending;
+- Forcing IDR on connect;
+- Converting AVCC packets to Annex-B when needed.
 
 ## Build
 
