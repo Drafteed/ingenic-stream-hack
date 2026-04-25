@@ -157,6 +157,10 @@ Thanks to [AlexxIT](https://github.com/AlexxIT/go2rtc) for go2rtc project, [Dafa
 
 Thanks to [Codex](https://openai.com/codex/) for helping with refactoring.
 
+## See also
+
+- [Tuya / Acebell Baby Monitor (TL-501) Rooting and Customization](https://github.com/Drafteed/tuya-baby-monitor)
+
 ## License
 
 [The MIT License (MIT)](LICENSE)
